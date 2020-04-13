@@ -2,14 +2,15 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 
-class WordTime{
+class WorldTime{
 
   String location; //location name from the UI
   String time;
   String flag;
   String url;
+  bool isDaytime;
 
-  WordTime({this.location,this.flag,this.url});
+  WorldTime({this.location,this.flag,this.url});
 
   Future<void> getData() async{
 
@@ -30,6 +31,8 @@ class WordTime{
       DateTime now = DateTime.parse(datetime);
       now = now.add(Duration(hours: int.parse(offset)));
 
+   //find if its night or day
+      isDaytime = now.hour > 6 && now.hour<20 ? true: false;
       time = DateFormat.jm().format(now);
 
     } else {
