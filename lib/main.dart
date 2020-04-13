@@ -6,6 +6,7 @@ import 'package:wordtime/pages/choose_location.dart';
 
 void main() => runApp(MaterialApp(
   // home: Home(),
+  // debugShowCheckedModeBanner: false,
   initialRoute: "/",
   routes: {
     '/': (context) => Loading(),

@@ -52,7 +52,7 @@ class _LocationState extends State<Location> {
                 onTap:(){
                   updateTime(index,context);
                 },
-                title:Text(locations[0].location),
+                title:Text(locations[index].location),
                 leading: CircleAvatar(
                   backgroundImage: AssetImage('assets/${locations[index].flag}')
                 ),

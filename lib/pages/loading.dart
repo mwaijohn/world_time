@@ -11,9 +11,11 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
 
   void setUpWorldTime() async{
-    var worldtime = new WorldTime(location: 'Berlin',flag: 'kenya.png',url: "Africa/Nairobi");
+    var worldtime = new WorldTime(location: 'Nairobi',flag: 'kenya.png',url: "Africa/Nairobi");
     await worldtime.getData();
 
+    //executed aafter @worldtime.getData(); is finished
+    //.getData() must return a future to use await here
     //push result to home screen
     Navigator.pushReplacementNamed(context, "/home",arguments: {
       'location': worldtime.location,
@@ -21,12 +23,14 @@ class _LoadingState extends State<Loading> {
       'time':worldtime.time,
       'isDaytime': worldtime.isDaytime
     });
-
   }
 
   @override
   void initState() {
     super.initState();
+
+    //on widget initialization run setUpWorldTimeMethod when finished navigate to 
+    //next screen with data
     setUpWorldTime();
   }
 

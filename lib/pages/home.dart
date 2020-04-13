@@ -29,6 +29,8 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               FlatButton.icon(
                 onPressed: () async {
+                  //wait for data from choose location screen
+                  //choose location uses Navigator.pop to send data to the below screen
                   dynamic result = await Navigator.pushNamed(context, "/location");
                   setState(() {
                         data = {
